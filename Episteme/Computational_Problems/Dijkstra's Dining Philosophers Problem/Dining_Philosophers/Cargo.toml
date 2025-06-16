@@ -1,0 +1,8 @@
+[package]
+name = "Dining_Philosophers"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+rand = "*"
+std-semaphore = "*"
