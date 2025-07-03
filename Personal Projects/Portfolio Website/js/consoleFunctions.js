@@ -1,0 +1,1 @@
+//hashmap of all console commands

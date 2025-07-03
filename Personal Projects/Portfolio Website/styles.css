@@ -1,0 +1,54 @@
+body{
+    background-color: black;
+}
+
+@font-face {
+    font-family: 'cityLights232';
+    src: url("/Users/cody/Documents/GitHub/CCDUNI.github.io/Personal Projects/Portfolio Website/CITYLIGL.TTF") format('truetype');
+}
+
+.blink{
+    animation: cursor_blink 3s infinite;
+}
+
+@keyframes cursor_blink {
+    0%{
+        color: green;
+        opacity: 1;
+    }
+    100%{
+        color: blue;
+        opacity: 0;
+    }
+}
+
+input[type = "text"] {
+    background-color: white;
+    border: none;
+}
+
+.console{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+}
+
+.console textarea{
+    height: auto;
+    width: 100%;
+    font-family: 'cityLights232', sans-serif;
+    overflow: hidden;
+    background-color: black;
+    field-sizing: content;
+    color: green;
+    border: none;
+    resize: none;
+    pointer-events: none;
+
+}
+.console label{
+    color: green;
+    pointer-events: none;
+}
+
