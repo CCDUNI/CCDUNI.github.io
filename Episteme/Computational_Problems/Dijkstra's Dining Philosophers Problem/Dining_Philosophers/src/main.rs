@@ -3,28 +3,23 @@ use rand::prelude::*;
 use std::sync::Mutex;
 use std::sync::Arc;
 use std::sync::MutexGuard;
-
 fn random() ->i32{
     let mut rng = rand::rng();
     let random: i32 = rng.random_range(400..800);
     return random;
 }
-
 pub struct Process {
     num: i32,
     mutex_reference: Arc<Vec<Mutex<i32>>>,
     num_philosophers: i32,
 }
-
 impl Process {
     fn left_resource(&self) -> i32{
         return (self.num -1 + self.num_philosophers) % self.num_philosophers;
     }
-
     fn right_resource(&self) -> i32{
         return(self.num +1) % self.num_philosophers;
     }
-
     fn think(&self){
         let value = std::time::Duration::from_millis(random() as u64);
         thread::sleep(value);
