@@ -1,14 +1,41 @@
-body{
-    background-color: black;
+@layer base {
+    body {
+        background-color: black;
+        color: rgba(0, 255, 0, 0.8);
+        filter: blur(0.2px) contrast(120%) saturate(80%);
+        z-index: 0;
+    }
 }
 
-@font-face {
-    font-family: 'cityLights232';
-    src: url("https://fontzone.net/downloadfile/city-light-light") format('truetype');
+@layer retro-monitor-effect {
+    body::before { 
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: rgba(0, 255, 0, 0.05) 30%;
+        background-color: rgba(0, 200, 0, 0.05);
+        z-index: -1;
+    }
 }
+
+
+@font-face {
+    font-family: 'City-Light-Light';
+    src: url("fonts/Berthold City Regular.ttf") format('truetype');
+}
+
+
 
 .blink{
     animation: cursor_blink 3s infinite;
+}
+
+.animated-underline-trigger{
+    animation: enter 3s infinite;
 }
 
 @keyframes cursor_blink {
@@ -27,26 +54,47 @@ input[type = "text"] {
     border: none;
 }
 
+.container{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.container span{
+    font-family: City-Light-Light, sans-serif;
+    text-align: center;
+    color: green;
+    font-size: x-large;
+}
+
 .console{
     position: absolute;
     width: 100%;
     height: 100%;
-    top: 0px;
+    top: 0;
 }
+
 
 .console textarea{
     height: auto;
     width: 100%;
-    font-family: 'cityLights232', sans-serif;
+    text-shadow: 0 0 5px #00ff00,
+    0 0 10px green,
+    0 0 20px green;
+    background-color: transparent;
+    font-family: City-Light-Light, sans-serif;
+    font-size: 15pt;
     overflow: hidden;
-    background-color: black;
     field-sizing: content;
-    color: green;
+    color: #00ff6a;
+    opacity: .7;
     border: none;
     resize: none;
     pointer-events: none;
 
 }
+
 .console label{
     color: green;
     pointer-events: none;
